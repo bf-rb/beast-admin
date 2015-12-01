@@ -9,5 +9,8 @@
 /tmp/
 
 .idea/
-
+test/dummy_rails/tmp/
+test/dummy_rails/log/
+test/dummy_rails/public/assets/
+test/dummy_rails/db/*.sqlite3
 *.gem
