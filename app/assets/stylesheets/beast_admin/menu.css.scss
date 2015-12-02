@@ -1,0 +1,32 @@
+.beast-admin {
+
+  ul.menu {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      list-style: none;
+      min-width: 40px;
+
+      a {
+        display: inline-block;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 3px 3px 0 0;
+
+        background: #910005;
+
+        text-decoration: none;
+
+
+      }
+
+    }
+
+  }
+
+}
