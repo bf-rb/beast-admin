@@ -1,0 +1,31 @@
+<h2>New</h2>
+
+<form name="resource" action="<%= Rails.application.routes.url_helpers.send("#{@ba_current_route_obj[:create]}_path") %>" method="post">
+
+  <% @db_cols.each do |col| %>
+
+    <label><%= col[:name].humanize %></label>
+
+
+    <% case col[:type]
+         when :string %>
+
+        <input type="text" name="resource[<%= col[:name] %>]" />
+
+      <% when :text %>
+        <textarea name="resource[<%= col[:name] %>]"></textarea>
+
+      <% when :integer %>
+        <input type="number" name="resource[<%= col[:name] %>]" />
+
+      <% else %>
+
+    <% end %>
+
+    <br/>
+
+  <% end %>
+
+  <input type="submit" value="Create <%= @ba_current_route_obj[:name] %>">
+
+</form>

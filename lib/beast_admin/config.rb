@@ -3,7 +3,7 @@ class BeastAdmin::Config
 
   def initialize
     @models = Array.new
-    @links = Array.new
+    @routes = Array.new
   end
 
   def models
@@ -14,12 +14,12 @@ class BeastAdmin::Config
     @models += val
   end
 
-  def links
-    @links
+  def routes
+    @routes
   end
 
-  def links=(val)
-    @links += val
+  def routes=(val)
+    @routes += val
   end
 
 end

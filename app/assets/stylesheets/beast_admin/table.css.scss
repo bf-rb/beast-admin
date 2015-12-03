@@ -1,0 +1,28 @@
+.beast-admin {
+
+  table {
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+
+    tr {
+
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      border-left: none;
+      border-right: none;
+
+      td, th {
+        background: #dadada;
+      }
+
+      td:nth-child(2n), th:nth-child(2n) {
+        background: #ffffff;
+      }
+
+    }
+
+  }
+
+
+}

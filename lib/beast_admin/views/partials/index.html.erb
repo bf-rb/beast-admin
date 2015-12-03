@@ -1,0 +1,41 @@
+<% if @resources.count == 0 %>
+  <h2>
+    <%= @ba_current_model %> is blank
+  </h2>
+
+  <a class="btn" href="<%= Rails.application.routes.url_helpers.send("#{@ba_current_route_obj[:new]}_path") %>">
+    create new <%= @ba_current_route_obj[:name] %>
+  </a>
+
+<% else %>
+
+  <a class="btn" href="<%= Rails.application.routes.url_helpers.send("#{@ba_current_route_obj[:new]}_path") %>">
+    create new <%= @ba_current_route_obj[:name] %>
+  </a>
+
+  <table>
+    <thead>
+      <tr>
+        <% @db_cols.each do |col| %>
+          <th><%= col[:name].humanize %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resources.each do |res| %>
+        <tr>
+          <% @db_cols.each do |col| %>
+            <td><%= res.send(col[:name]).to_s %></td>
+          <% end %>
+
+        </tr>
+
+      <% end %>
+    </tbody>
+
+
+  </table>
+
+
+
+<% end %>
