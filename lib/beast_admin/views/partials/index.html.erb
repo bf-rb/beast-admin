@@ -1,16 +1,16 @@
 <% if @resources.count == 0 %>
   <h2>
-    <%= @ba_current_model %> is blank
+    <%= @res_model_str %> is blank
   </h2>
 
-  <a class="btn" href="<%= Rails.application.routes.url_helpers.send("#{@ba_current_route_obj[:new]}_path") %>">
-    create new <%= @ba_current_route_obj[:name] %>
+  <a class="btn" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :new) %>">
+    create new <%= @res_model_str %>
   </a>
 
 <% else %>
 
-  <a class="btn" href="<%= Rails.application.routes.url_helpers.send("#{@ba_current_route_obj[:new]}_path") %>">
-    create new <%= @ba_current_route_obj[:name] %>
+  <a class="btn" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :new) %>">
+    create new <%= @res_model_str %>
   </a>
 
   <table>
@@ -19,6 +19,7 @@
         <% @db_cols.each do |col| %>
           <th><%= col[:name].humanize %></th>
         <% end %>
+          <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +28,18 @@
           <% @db_cols.each do |col| %>
             <td><%= res.send(col[:name]).to_s %></td>
           <% end %>
+
+          <td>
+            <a class="" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :show, res.id) %>">
+              Show
+            </a>
+            <a class="" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :edit, res.id) %>">
+              Edit
+            </a>
+            <a class="" data-confirm="Are you sure?" data-method="delete" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :delete, res.id) %>" rel="nofollow">
+              Delete
+            </a>
+          </td>
 
         </tr>
 

@@ -1,1 +1,16 @@
 <h1>Show</h1>
+
+<% @db_cols.each do |col| %>
+  <%= @resource.send(col[:name]).to_s %>
+<% end %>
+
+
+<a class="" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :show, @resource.id) %>">
+  Show
+</a>
+<a class="" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :edit, @resource.id) %>">
+  Edit
+</a>
+<a class="" data-confirm="Are you sure?" data-method="delete" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :delete, @resource.id) %>" rel="nofollow">
+  Delete
+</a>

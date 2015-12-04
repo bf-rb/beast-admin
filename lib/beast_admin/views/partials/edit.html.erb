@@ -1,0 +1,35 @@
+<h2>Edit</h2>
+
+<form name="resource" action="<%= BeastAdmin.routes.path_helper(@res_model_str, :update, @resource.id) %>" method="post">
+
+  <input type="hidden" name="_method" value="put" />
+
+  <% @db_cols.each do |col| %>
+
+    <label><%= col[:name].humanize %></label>
+
+
+    <% case col[:type]
+         when :string %>
+
+      <input type="text" name="resource[<%= col[:name] %>]" value="<%= @resource.send(col[:name]) %>"/>
+
+    <% when :text %>
+      <textarea name="resource[<%= col[:name] %>]"><%= @resource.send(col[:name]) %></textarea>
+
+    <% when :integer %>
+      <input type="number" name="resource[<%= col[:name] %>]" value="<%= @resource.send(col[:name]) %>"/>
+
+    <% else %>
+      
+      <input type="text" name="resource[<%= col[:name] %>]" />
+
+    <% end %>
+
+    <br/>
+
+  <% end %>
+
+  <input type="submit" value="Update <%= @res_model_str %>">
+
+</form>

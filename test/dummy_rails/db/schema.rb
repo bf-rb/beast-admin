@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202121515) do
+ActiveRecord::Schema.define(version: 20151204130838) do
+
+  create_table "portfolios", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "some_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

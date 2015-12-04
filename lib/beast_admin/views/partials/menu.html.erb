@@ -1,7 +1,7 @@
 <ul class="menu">
-  <% BeastAdmin.config.routes.each do |link|%>
+  <% BeastAdmin.routes.all_index.each do |i|%>
     <li>
-      <a href="<%= Rails.application.routes.url_helpers.send("#{link[:index]}_path") %>"><%= link[:name] %></a>
+      <a href="<%= i[:href] %>"><%= i[:title] %></a>
     </li>
   <% end %>
 </ul>

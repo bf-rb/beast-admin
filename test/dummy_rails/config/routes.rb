@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
-  BeastAdmin.routes(self)
+  BeastAdmin.draw_routes(self)
 
 end

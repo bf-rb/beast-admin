@@ -1,6 +1,6 @@
 <h2>New</h2>
 
-<form name="resource" action="<%= Rails.application.routes.url_helpers.send("#{@ba_current_route_obj[:create]}_path") %>" method="post">
+<form name="resource" action="<%= BeastAdmin.routes.path_helper(@res_model_str, :create) %>" method="post">
 
   <% @db_cols.each do |col| %>
 
@@ -20,12 +20,14 @@
 
       <% else %>
 
+        <input type="text" name="resource[<%= col[:name] %>]" />
+
     <% end %>
 
     <br/>
 
   <% end %>
 
-  <input type="submit" value="Create <%= @ba_current_route_obj[:name] %>">
+  <input type="submit" value="Create <%= @res_model_str %>">
 
 </form>

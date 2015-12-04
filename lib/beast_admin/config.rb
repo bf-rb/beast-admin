@@ -14,12 +14,4 @@ class BeastAdmin::Config
     @models += val
   end
 
-  def routes
-    @routes
-  end
-
-  def routes=(val)
-    @routes += val
-  end
-
 end
