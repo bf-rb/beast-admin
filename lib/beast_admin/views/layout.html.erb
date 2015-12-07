@@ -3,8 +3,13 @@
   <head>
     <meta charset="utf-8"/>
     <title><%= @page.title || 'Beast Admin' %></title>
+
     <%= stylesheet_link_tag('beast_admin', media: 'all') %>
     <%= javascript_include_tag('beast_admin') %>
+
+    <link rel="shortcut icon" href="<%= image_path('beast_admin/favicon.ico')%>" type="image/x-icon">
+    <link rel="icon" href="<%= image_path('beast_admin/favicon.ico')%>" type="image/x-icon">
+
   </head>
   <body class="beast-admin">
 
