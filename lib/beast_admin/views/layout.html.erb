@@ -2,21 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title><%= @ba_page_title || 'Beast Admin' %></title>
-    <%= stylesheet_link_tag('application', media: 'all') %>
-    <%= javascript_include_tag('application') %>
+    <title><%= @page.title || 'Beast Admin' %></title>
+    <%= stylesheet_link_tag('beast_admin', media: 'all') %>
+    <%= javascript_include_tag('beast_admin') %>
   </head>
   <body class="beast-admin">
 
     <div class="wrapper">
 
       <div class="header">
-        <%= render file: "#{@ba_partials_path}/menu" %>
+
+        <a class="btn" href="<%= BeastAdmin.routes.dashboard_path %>">
+          Beast Admin
+        </a>
+
+        <%= render file: "#{@page.partials_path}/menu" %>
 
       </div>
 
       <div class="content">
-        <%= render file: "#{@ba_partials_path}/#{params[:action]}" %>
+        <%= render file: "#{@page.partials_path}/#{params[:action]}" %>
       </div>
 
     </div>

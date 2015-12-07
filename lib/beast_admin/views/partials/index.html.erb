@@ -1,22 +1,22 @@
-<% if @resources.count == 0 %>
+<% if @resources.length == 0 %>
   <h2>
-    <%= @res_model_str %> is blank
+    <%= @page.model_name %> is blank
   </h2>
 
-  <a class="btn" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :new) %>">
-    create new <%= @res_model_str %>
+  <a class="btn" href="<%= BeastAdmin.routes.path_helper(@page.model_name, :new) %>">
+    create new <%= @page.model_name %>
   </a>
 
 <% else %>
 
-  <a class="btn" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :new) %>">
-    create new <%= @res_model_str %>
+  <a class="btn" href="<%= BeastAdmin.routes.path_helper(@page.model_name, :new) %>">
+    create new <%= @page.model_name %>
   </a>
 
   <table>
     <thead>
       <tr>
-        <% @db_cols.each do |col| %>
+        <% @page.all_model_fields.each do |col| %>
           <th><%= col[:name].humanize %></th>
         <% end %>
           <th>Action</th>
@@ -25,18 +25,18 @@
     <tbody>
       <% @resources.each do |res| %>
         <tr>
-          <% @db_cols.each do |col| %>
+          <% @page.all_model_fields.each do |col| %>
             <td><%= res.send(col[:name]).to_s %></td>
           <% end %>
 
           <td>
-            <a class="" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :show, res.id) %>">
+            <a class="" href="<%= BeastAdmin.routes.path_helper(@page.model_name, :show, res.id) %>">
               Show
             </a>
-            <a class="" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :edit, res.id) %>">
+            <a class="" href="<%= BeastAdmin.routes.path_helper(@page.model_name, :edit, res.id) %>">
               Edit
             </a>
-            <a class="" data-confirm="Are you sure?" data-method="delete" href="<%= BeastAdmin.routes.path_helper(@res_model_str, :delete, res.id) %>" rel="nofollow">
+            <a class="" data-confirm="Are you sure?" data-method="delete" href="<%= BeastAdmin.routes.path_helper(@page.model_name, :delete, res.id) %>" rel="nofollow">
               Delete
             </a>
           </td>

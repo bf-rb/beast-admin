@@ -5,11 +5,13 @@ class BeastAdmin::Router
   # @param mapper [ActionDispatch::Routing::Mapper]
   def self.draw_routes(mapper)
 
-    mapper.get('admin', to: 'beast_admin/base#dashboard')
+    mapper.get('admin', to: 'beast_admin/base#dashboard', as: :beast_admin_dashboard)
 
     Rails.application.eager_load!
 
-    ActiveRecord::Base.descendants.map(&:to_s).each do |model|
+    BeastAdmin.models = ActiveRecord::Base.descendants.map(&:to_s)
+
+    BeastAdmin.models.each do |model|
 
       str = model.underscore
 

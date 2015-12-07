@@ -4,8 +4,7 @@ require 'beast_admin/base_controller'
 require 'beast_admin/config'
 require 'beast_admin/routes'
 require 'beast_admin/router'
-
-# require 'beast_admin/generators/install/install_generator'
+require 'beast_admin/page'
 
 module BeastAdmin
 
@@ -31,6 +30,14 @@ module BeastAdmin
   # @return [BeastAdmin::Routes]
   def self.routes
     Routes.inst
+  end
+
+  def self.models
+    @@models
+  end
+
+  def self.models=(val)
+    @@models = val
   end
 
 end

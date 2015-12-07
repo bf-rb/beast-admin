@@ -1,8 +1,8 @@
 <h2>New</h2>
 
-<form name="resource" action="<%= BeastAdmin.routes.path_helper(@res_model_str, :create) %>" method="post">
+<form name="resource" action="<%= BeastAdmin.routes.path_helper(@page.model_name, :create) %>" method="post">
 
-  <% @db_cols.each do |col| %>
+  <% @page.edit_model_fields.each do |col| %>
 
     <label><%= col[:name].humanize %></label>
 
@@ -28,6 +28,6 @@
 
   <% end %>
 
-  <input type="submit" value="Create <%= @res_model_str %>">
+  <input type="submit" value="Create <%= @page.model_name %>">
 
 </form>

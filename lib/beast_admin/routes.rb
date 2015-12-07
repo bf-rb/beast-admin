@@ -26,6 +26,10 @@ module BeastAdmin
       ::Rails.application.routes.url_helpers.send("#{find_by_model_name(model_name)[action]}_url", data)
     end
 
+    def dashboard_path
+      ::Rails.application.routes.url_helpers.send('beast_admin_dashboard_path')
+    end
+
     def all_index
       @routes.map{|r| { href: path_helper(r[:name], :index), title: r[:name]}}
     end
