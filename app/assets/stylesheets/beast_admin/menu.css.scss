@@ -2,26 +2,71 @@
 
   ul.menu {
     display: block;
+    position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
-    text-align: center;
 
     li {
-      display: inline-block;
+      display: block;
+      float: left;
       list-style: none;
       min-width: 40px;
+
+      &:nth-child(1) a:hover, &.active:nth-child(1) a {
+        border-color: #660000;
+      }
+      &:nth-child(2) a:hover, &.active:nth-child(2) a {
+        border-color: #CC6600;
+      }
+      &:nth-child(3) a:hover, &.active:nth-child(3) a {
+        border-color: #FFCC00;
+      }
+      &:nth-child(4) a:hover, &.active:nth-child(4) a {
+        border-color: #336600;
+      }
+      &:nth-child(5) a:hover, &.active:nth-child(5) a {
+        border-color: #0099FF;
+      }
+      &:nth-child(6) a:hover, &.active:nth-child(6) a {
+        border-color: #0000CC;
+      }
+      &:nth-child(n+7) a:hover, &.active:nth-child(n+7) a {
+        border-color: #660000;
+      }
+      &:nth-child(2n+7) a:hover, &.active:nth-child(2n+7) a {
+        border-color: #CC6600;
+      }
+      &:nth-child(3n+7) a:hover, &.active:nth-child(3n+7) a {
+        border-color: #FFCC00;
+      }
+      &:nth-child(4n+7) a:hover, &.active:nth-child(4n+7) a {
+        border-color: #336600;
+      }
+      &:nth-child(5n+7) a:hover, &.active:nth-child(5n+7) a {
+        border-color: #0099FF;
+      }
+      &:nth-child(6n+7) a:hover, &.active:nth-child(6n+7) a {
+        border-color: #0000CC;
+      }
+      &:nth-child(7n+7) a:hover, &.active:nth-child(7n+7) a {
+        border-color: #6600CC;
+      }
 
       a {
         display: inline-block;
         color: #ffffff;
-        padding: 5px 10px;
-        border-radius: 3px 3px 0 0;
-
-        background: #910005;
+        padding: 10px 20px 6px 20px;
+        border-bottom: 4px solid transparent;
+        font-size: 16px;
+        font-weight: bolder;
 
         text-decoration: none;
+        transition: 1s;
 
+        &:hover {
+          transition: 0.5s;
+        }
 
       }
 

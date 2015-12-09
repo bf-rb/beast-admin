@@ -1,7 +1,10 @@
 <ul class="menu">
+  <li class="<%= 'active' if @page.model_name.blank? %>"><a href="<%= BeastAdmin.routes.dashboard_path %>">Beast Admin</a></li>
   <% BeastAdmin.routes.all_index.each do |i|%>
-    <li>
-      <a href="<%= i[:href] %>"><%= i[:title] %></a>
-    </li>
+      <% if i[:title] == @page.model_name %>
+        <li class="active"><a href="<%= i[:href] %>"><%= i[:title] %></a></li>
+      <% else %>
+        <li><a href="<%= i[:href] %>"><%= i[:title] %></a></li>
+      <% end %>
   <% end %>
 </ul>
