@@ -26,8 +26,15 @@ html, body {
   }
 
   .header {
-    background: #000;
-    height: 80px;
+    background: #000000;
+
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
+      width: 0;
+    }
   }
 
   .footer {

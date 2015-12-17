@@ -20,6 +20,10 @@ Or install it yourself as:
 
     $ gem install beast-admin
 
+Run command in console:
+
+    $ rails generate beast_admin:install
+
 ## Usage
 
 TODO: Write usage instructions here

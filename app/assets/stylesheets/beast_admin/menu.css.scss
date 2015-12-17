@@ -6,12 +6,24 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    border-top: 5px solid #555555;
+    border-bottom: 5px solid #555555;
+
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
+      width: 0;
+    }
 
     li {
       display: block;
       float: left;
       list-style: none;
       min-width: 40px;
+      padding: 0;
+      margin: -5px 0 -5px 0;
 
       &:nth-child(1) a:hover, &.active:nth-child(1) a {
         border-color: #660000;
@@ -53,19 +65,32 @@
         border-color: #6600CC;
       }
 
+      &.active a {
+        background: #202020;
+      }
+
       a {
         display: inline-block;
         color: #ffffff;
-        padding: 10px 20px 6px 20px;
-        border-bottom: 4px solid transparent;
+        padding: 10px 20px 10px 20px;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+
         font-size: 16px;
         font-weight: bolder;
 
         text-decoration: none;
         transition: 1s;
 
+        //background: #000000;
+
         &:hover {
           transition: 0.5s;
+          background: #202020;
+        }
+
+        &:active, &:focus {
+          outline: none;
         }
 
       }
