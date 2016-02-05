@@ -22,4 +22,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 4.1', '< 5.0'
   spec.add_dependency 'sass-rails', '~> 4.0'
+  spec.add_dependency 'jquery-rails', '~> 3.1'
+  spec.add_dependency 'coffee-rails', '~> 4.0'
+  spec.add_dependency 'haml', '~> 4.0'
+
 end

@@ -1,0 +1,16 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %title= @page.title || 'Beast Admin'
+    = stylesheet_link_tag('beast_admin', media: 'all')
+    = javascript_include_tag('beast_admin')
+    %link{:href => image_path('beast_admin/favicon.ico'), :rel => "shortcut icon", :type => "image/x-icon"}
+    %link{:href => image_path('beast_admin/favicon.ico'), :rel => "icon", :type => "image/x-icon"}
+  %body.beast-admin
+    .wrapper
+      .header
+        = render partial: 'beast_admin/partials/menu'
+      .content
+        = yield
+    .footer

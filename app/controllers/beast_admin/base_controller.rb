@@ -4,20 +4,20 @@ class BeastAdmin::BaseController < ActionController::Base
   before_action :authenticate
   before_action :create_page_obj
 
-  layout false
+  layout 'beast_admin'
 
   def dashboard
-    render __dir__ + '/views/layout'
+    # render 'layout'
   end
 
   def index
     @resources = @page.model.all
-    render __dir__ + '/views/layout'
+    # render 'layout'
   end
 
   def new
     @resource = @page.model.new
-    render __dir__ + '/views/layout'
+    # render 'layout'
   end
 
   def create
@@ -37,12 +37,12 @@ class BeastAdmin::BaseController < ActionController::Base
 
   def show
     @resource = @page.model.find(params[:id])
-    render __dir__ + '/views/layout'
+    # render 'layout'
   end
 
   def edit
     @resource = @page.model.find(params[:id])
-    render __dir__ + '/views/layout'
+    # render 'layout'
   end
 
   def update
@@ -70,25 +70,25 @@ class BeastAdmin::BaseController < ActionController::Base
 
   protected
 
-    def authenticate
-      authenticate_or_request_with_http_basic do |username, password|
-        username == 'admin' && password == '123456'
-      end
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == 'admin' && password == '123456'
     end
+  end
 
-    def create_page_obj
+  def create_page_obj
 
-      model = request.fullpath.split('/')[2]
+    model = request.fullpath.split('/')[2]
 
-      data = {
-        partials_path: __dir__ + '/views/partials',
-        title: "#{model.present? ? model.classify : 'Dashboard'} | Beast Admin"
-      }
+    data = {
+      partials_path: __dir__ + '/views/partials',
+      title: "#{model.present? ? model.classify : 'Dashboard'} | Beast Admin"
+    }
 
-      data[:model_name] = model.classify if model.present?
-      data[:model] = data[:model_name].safe_constantize if data[:model_name].present?
+    data[:model_name] = model.classify if model.present?
+    data[:model] = data[:model_name].safe_constantize if data[:model_name].present?
 
-      @page = BeastAdmin::Page.new(data)
-    end
+    @page = BeastAdmin::Page.new(data)
+  end
 
 end

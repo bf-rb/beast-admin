@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'beast_admin/version'
-require 'beast_admin/base_controller'
 require 'beast_admin/config'
 require 'beast_admin/routes'
 require 'beast_admin/router'
